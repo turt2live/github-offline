@@ -1,0 +1,11 @@
+{
+  "name": "github-downloader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Travis Ralston <travpc@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@octokit/graphql": "^4.3.1"
+  }
+}
