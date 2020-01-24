@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>#{{number}} - {{title|escape}}</title>
+        <link rel="stylesheet" href="../../../res/style.css" />
+    </head>
+    <body class='issue'>
+        <h1>[{{state}}] #{{number}} - {{title|escape}}</h1>
+        <span class='links'>
+            <a href="index.html">All</a> | <a href="MERGED.html">All MERGED</a> | <a href="CLOSED.html">All CLOSED</a> | <a href="OPEN.html">All OPEN</a>
+        </span>
+        {% for comment in comments %}
+            <div class='comment'>
+                <div class='author'>
+                    <img src="{{comment.authorAvatarUrl}}" />
+                    <span>{{comment.authorName|escape}}</span>
+                </div>
+                <div class='date'>
+                    {{comment.createDate}}
+                </div>
+                <div class='body'>
+                    {{comment.html}}
+                </div>
+            </div>
+        {% endfor %}
+    </body>
+</html>

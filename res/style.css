@@ -1,0 +1,17 @@
+.issue > h1, .issue .links {
+    margin-left: 10px;
+}
+
+.issue .comment {
+    display: block;
+    margin: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.issue .comment .author img {
+    width: 20px;
+    height: 20px;
+    vertical-align: text-top;
+}

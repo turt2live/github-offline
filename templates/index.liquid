@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{orgName}}/{{repoName}}</title>
+        <link rel="stylesheet" href="../../../res/style.css" />
+    </head>
+    <body class='index'>
+        <h1>{{orgName}}/{{repoName}}</h1>
+        <a href="MERGED.html">MERGED</a> | <a href="CLOSED.html">CLOSED</a> | <a href="OPEN.html">OPEN</a>
+        <h2>Issues</h2>
+        <ul>
+        {% for item in issues %}
+            <li><a href="./{{item.number}}.html">[{{item.state}}] #{{item.number}} - {{item.title|escape}}</a></li>
+        {% endfor %}
+        </ul>
+
+        <h2>PRs</h2>
+        <ul>
+        {% for item in prs %}
+            <li><a href="./{{item.number}}.html">[{{item.state}}] #{{item.number}} - {{item.title|escape}}</a></li>
+        {% endfor %}
+        </ul>
+    </body>
+</html>
