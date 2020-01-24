@@ -12,10 +12,12 @@ const mkdirp = require("mkdirp");
     const orgName = args[2];
     const repoName = args[3];
 
+    const tmpFile = `tmp.${orgName}.${repoName}.json`;
+
     const issues = [];
     const prs = [];
-    if (fs.existsSync("tmp.json")) {
-        const data = JSON.parse(fs.readFileSync("tmp.json"));
+    if (fs.existsSync(tmpFile)) {
+        const data = JSON.parse(fs.readFileSync(tmpFile));
         issues.push(...data['issues']);
         prs.push(...data['prs']);
     } else {
@@ -48,7 +50,7 @@ const mkdirp = require("mkdirp");
         }
     }
 
-    fs.writeFileSync("tmp.json", JSON.stringify({issues, prs}));
+    fs.writeFileSync(tmpFile, JSON.stringify({issues, prs}));
 
     function polyfillAuthor(author) {
         if (!author) {
@@ -90,19 +92,21 @@ const mkdirp = require("mkdirp");
     const result = await engine.renderFile("index.liquid", {
         orgName,
         repoName,
-        issues,
-        prs,
+        issues: issues.length < 5000 ? issues : [],
+        prs: prs.length < 5000 ? prs : [],
     });
     fs.writeFileSync(path.join(outDir, `index.html`), result);
 
     const states = ['MERGED', 'CLOSED', 'OPEN'];
     for (const state of states) {
         console.log(`Rendering ${state}.html`);
+        const issuesState = issues.filter(i => i.state === state);
+        const prsState = prs.filter(p => p.state === state);
         const result = await engine.renderFile("index.liquid", {
             orgName,
             repoName,
-            issues: issues.filter(i => i.state === state),
-            prs: prs.filter(p => p.state === state),
+            issues: issuesState.length < 5000 ? issuesState : [],
+            prs: prsState.length < 5000 ? prsState : [],
         });
         fs.writeFileSync(path.join(outDir, `${state}.html`), result);
     }
