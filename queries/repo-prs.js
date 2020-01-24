@@ -15,6 +15,7 @@ module.exports = function repoPrs(owner, name, after) {
                         }
                         comments(first: 100) {
                             edges {
+                                cursor
                                 node {
                                     author {
                                         avatarUrl
@@ -26,6 +27,30 @@ module.exports = function repoPrs(owner, name, after) {
                                 }
                             }
                         }
+                        labels(first: 20) {
+                            edges {
+                                cursor
+                                node {
+                                    color
+                                    description
+                                    name
+                                }
+                            }
+                        }
+                        reactions(first: 100) {
+                            edges {
+                                cursor
+                                node {
+                                    content
+                                    user {
+                                        avatarUrl
+                                        login
+                                    }
+                                }
+                            }
+                        }
+                        body
+                        bodyText
                         bodyHTML
                         closed
                         closedAt

@@ -22,8 +22,33 @@ module.exports = function repoIssues(owner, name, after) {
                         title
                         updatedAt
                         url
+                        labels(first: 20) {
+                            edges {
+                                cursor
+                                node {
+                                    color
+                                    description
+                                    name
+                                }
+                            }
+                        }
+                        reactions(first: 100) {
+                            edges {
+                                cursor
+                                node {
+                                    content
+                                    user {
+                                        avatarUrl
+                                        login
+                                    }
+                                }
+                            }
+                        }
+                        body
+                        bodyText
                         comments(first: 100) {
                             edges {
+                                cursor
                                 node {
                                     author {
                                         avatarUrl
