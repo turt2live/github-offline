@@ -120,10 +120,10 @@ isobject@^4.0.0:
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-4.0.0.tgz#3f1c9155e73b192022a80819bacd0343711697b0"
   integrity sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
 
-liquidjs@^9.6.2:
-  version "9.6.2"
-  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-9.6.2.tgz#137f5b2d1c42a2b19a6ad7e54456ff8228f16dd8"
-  integrity sha512-mcn6rL6nuwSYL1TTfjTcIxoSyp6Dw1crj+6+pCKm5qXpVBkJ1EMKIVIjuEGPrR6JMYZqoxINqU2ScHqSFUPqBw==
+liquidjs@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/liquidjs/-/liquidjs-10.0.0.tgz#282579e9f90f4bfd92ef7d09ad4f5aac3ec9fd61"
+  integrity sha512-uY3fKqBSRmnat0wB5qWk0W5N5iT78OUhuIXNRiMfhYQ3p35al9mEWKQ68/Z+WD54V2upaxEM8nHaZ6o1B8WCMA==
 
 macos-release@^2.2.0:
   version "2.3.0"
